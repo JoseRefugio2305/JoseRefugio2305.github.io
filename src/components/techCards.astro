@@ -1,0 +1,81 @@
+---
+const technologies = {
+   'Lenguajes': [
+      ["python", "Python"],
+      ["csharp", "C#"],
+      ["java", "Java"],
+      ["typeScript", "Typescript"],
+      ["HTML5", "HTML5"],
+      ["CSS3", "CSS3"],
+      ["javaScript", "Javascript"],
+      ["php", "PHP"],
+   ],
+   'Herramientas': [
+      ["git", "Git"],
+      ["nodejs", "NodeJS"],
+      ['linux','Linux'],
+      ["bash", "Bash"],
+   ],
+   'Frameworks': [
+      ["astro", "Astro"],
+      ["react", "React"],
+      ["tailwindcss", "TailwindCSS"],
+      ["aspnet", "ASP.Net"],
+      ["laravel", "Laravel"],
+      ["django", "DJango"],
+      ["fastapi", "FastAPI"],
+   ],
+   'Bases de Datos': [
+      ["mongodb", "MongoDB"],
+      ["firebase", "Firebase"],
+      ["mysql", "MySQL"],
+      ["postgresql", "PostgreSQL"],
+      ["SQL Server", "SQL Server"],
+   ],
+};
+---
+
+<section id="technologies" class="py-12 border-t border-[#ffffff10] text-[var(--white)]">
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <!--Aqui comienza la card -->
+      {
+         Object.keys(technologies).map(clave => {
+            return (
+               <div class="group">
+                     <div
+                        class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4 bg-neutral-900"
+                     >
+                        <div
+                           class="text-md md:text-2xl object-cover justify-center text-center mt-10"
+                        >
+                           <span class="text-[var(--sec)] shiny-sec w-max">{clave}</span>
+                        </div>
+                        <div class="w-full h-auto md:h-72 object-cover m-10 grid sm:grid-cols-1 md:grid-cols-2">
+                           <!-- group-hover:scale-105 transition-transform duration-300 -->
+                           {
+                              technologies[clave].map((tech) => (
+                                 <div class="flex items-center gap-2 group transition-all duration-300 mb-3">
+                                    <img
+                                       src={`/svg/${tech[0]}.svg`}
+                                       alt={tech[1]}
+                                       class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
+                                       width="30"
+                                       height="30"
+                                       loading="lazy"
+                                    />
+                                    <span class="text-md md:text-lg font-medium text-[var(--white-icon)]">
+                                       {tech[1]}
+                                    </span>
+                                 </div>
+                              ))
+                           }
+                        </div>
+                     </div>
+                  </div>
+            )
+         })
+      }
+      
+      
+   </div>
+</section>
