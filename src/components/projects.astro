@@ -1,0 +1,41 @@
+---
+import { PROJECTS, type Project } from "../content/projects";
+import ProjectCard from "../components/projectCard.astro";
+import { GITHUBSVG } from "../content/svgContent";
+---
+
+<section id="projects" class="pt-5">
+   <div
+      class="max-w-screen-lg mx-auto space-y-8 md:py-15 pb-14 px-9 md:px-20 gap-8"
+   >
+      <h2 class="text-2xl md:text-3xl dark:text-white font-bold">Proyectos</h2>
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
+         {PROJECTS.map((pro: Project) => <ProjectCard proyecto={pro} />)}
+      </div>
+      <a
+         target="_blank"
+         href="https://github.com/JoseRefugio2305"
+         aria-label="Mi perfil de Github"
+         class="flex flex-row gap-5 justify-center items-center w-full text-purple-900 dark:text-white hover:border-purple-700 hover:text-white transition duration-300 ease-in-out border-2 dark:border-white border-purple-900 p-3 rounded-full bg-white dark:bg-[#1414149c] hover:bg-purple-900 btn_Shadow"
+      >
+         <div set:html={GITHUBSVG}/>
+         <p class="font-bold text-lg md:text-xl ">Ver mas proyectos en GitHub</p>
+         <svg
+            class="md:w-6 md:h-6 w-10 h-10"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+         >
+            <path
+               fill-rule="evenodd"
+               d="M11.403 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6.403a3.01 3.01 0 0 1-1.743-1.612l-3.025 3.025A3 3 0 1 1 9.99 9.768l3.025-3.025A3.01 3.01 0 0 1 11.403 5Z"
+               clip-rule="evenodd"></path>
+            <path
+               fill-rule="evenodd"
+               d="M13.232 4a1 1 0 0 1 1-1H20a1 1 0 0 1 1 1v5.768a1 1 0 1 1-2 0V6.414l-6.182 6.182a1 1 0 0 1-1.414-1.414L17.586 5h-3.354a1 1 0 0 1-1-1Z"
+               clip-rule="evenodd"></path>
+         </svg>
+      </a>
+   </div>
+</section>

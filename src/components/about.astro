@@ -1,0 +1,53 @@
+---
+import { technologies } from "../content/technologies";
+---
+
+<section id="about" class="pt-5">
+   <div
+      class="max-w-screen-lg mx-auto space-y-8 md:py-15  px-9 md:px-20 gap-8"
+   >
+      <h2 class="text-2xl md:text-3xl dark:text-white font-bold">Sobre mí</h2>
+      <p class="text-black dark:text-white text-lg">
+         Soy un desarrollador de software apasionado por la creación de
+         aplicaciones que mejoren la experiencia de los usuarios y optimicen
+         procesos. Aunque aún no cuento con experiencia laboral en una empresa,
+         he desarrollado proyectos personales que ponen en práctica mis
+         conocimientos en desarrollo backend, frontend y soporte TI.
+      </p>
+      <h2 class="text-2xl md:text-3xl dark:text-white font-bold">
+         Tecnologías y herramientas
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+         {
+            Object.keys(technologies).map((key: string) => {
+               return (
+                  <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 shadow-xl card_Shadow">
+                     <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white ">
+                        {key}
+                     </h3>
+                     <ul class="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
+                        {technologies[key].map((lang: string[]) => (
+                           <li>
+                              <div class="flex items-center gap-2 group transition-all duration-300 mb-3">
+                                 <img
+                                    src={`/svg/${lang[0]}.svg`}
+                                    alt={`Lenguaje ${lang[1]}`}
+                                    class="h-7 w-auto object-contain transition-transform group-hover:scale-110"
+                                    width="30"
+                                    height="30"
+                                    loading="lazy"
+                                 />
+                                 <span class="font-bold text-black dark:text-white">
+                                    {lang[1]}
+                                 </span>
+                              </div>
+                           </li>
+                        ))}
+                     </ul>
+                  </div>
+               );
+            })
+         }
+      </div>
+   </div>
+</section>

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
+/*Linea necesaria para activar el uso del dark mode, y que el cambio con switch sea posible, si no se pone esta linea la pagina tomara por defecto el tema que el usuario tenga en su navagador o equipo de computo*/
+@custom-variant dark (&:where(.dark, .dark *));
+
+.btn_Shadow {
+   @apply hover:bg-purple-900 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)] hover:scale-95;
+}
+
+.card_Shadow {
+   @apply shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] dark:hover:shadow-[0px_0px_0px_0px_rgba(255,255,255,1)] hover:scale-97 transition;
+}
+
+.nav_LinkAct{
+   @apply text-purple-700 dark:text-purple-400 underline font-bold;
+}
+/* 
+.nav_LinkDeact{
+   @apply 
+} */

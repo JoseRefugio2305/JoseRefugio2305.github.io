@@ -1,0 +1,18 @@
+---
+interface Props {
+   link: string;
+   svg: string;
+   ariaLabel: string;
+}
+
+const { link, svg, ariaLabel } = Astro.props;
+---
+
+<a
+   target="_blank"
+   href={link}
+   aria-label={ariaLabel}
+   class="text-purple-900 dark:text-white hover:border-purple-700 hover:text-white transition duration-300 ease-in-out border-2 dark:border-white border-purple-900 p-3 rounded-xl bg-white dark:bg-[#1414149c] hover:bg-purple-900 btn_Shadow"
+>
+   <div set:html={svg} />
+</a>

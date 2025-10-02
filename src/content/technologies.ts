@@ -1,0 +1,35 @@
+export const technologies = {
+     'Lenguajes': [
+          ["python", "Python"],
+          ["csharp", "C#"],
+          ["java", "Java"],
+          ["typeScript", "Typescript"],
+          ["HTML5", "HTML5"],
+          ["CSS3", "CSS3"],
+          ["javaScript", "Javascript"],
+          ["php", "PHP"],
+     ],
+     'Herramientas': [
+          ["git", "Git"],
+          ["nodejs", "NodeJS"],
+          ['linux', 'Linux'],
+          ["bash", "Bash"],
+     ],
+     'Frameworks': [
+          ["astro", "Astro"],
+          ["react", "React"],
+          ["tailwindcss", "TailwindCSS"],
+          ["aspnet", "ASP.Net"],
+          ["laravel", "Laravel"],
+          ["django", "DJango"],
+          ["fastapi", "FastAPI"],
+          ["flask", "Flask"],
+     ],
+     'Bases de Datos': [
+          ["mongodb", "MongoDB"],
+          ["firebase", "Firebase"],
+          ["mysql", "MySQL"],
+          ["postgresql", "PostgreSQL"],
+          ["SQL Server", "SQL Server"],
+     ],
+};

@@ -1,0 +1,56 @@
+---
+import { CVSVG, GITHUBSVG, LINKEDINSVG, MAILSVG } from "../content/svgContent";
+import SocialBTN from "../components/socialBTN.astro";
+---
+
+<section id="home" class="pt-25  md:pt-20">
+   <div
+      class="max-w-screen-lg mx-auto space-y-8 md:py-15 pb-14 px-9 md:px-20 gap-8"
+   >
+      <h1 class="text-4xl md:text-5xl dark:text-white font-bold">
+         ¡Hola!, Soy José Refugio Rivera <br /> Desarrollador de Software Full-Stack
+      </h1>
+      <div class="flex flex-col md:flex-row gap-4">
+         <img
+            class="rounded-full w-72 h-72 border-2 border-white card_Shadow"
+            src="/photo2.jpg"
+            alt="image description"
+         />
+         <div class="flex flex-col gap-4">
+            <p class="text-2xl dark:text-white">
+               Desarrollo soluciones web eficientes, escalables y seguras. Con
+               conocimientos en frontend, backend y soporte TI.
+            </p>
+            <div class="flex flex-col md:flex-row gap-5">
+               <a
+                  target="_blank"
+                  href="/CV_NT.pdf"
+                  aria-label="Descarga mi CV"
+                  class="flex flex-row w-max items-center text-purple-100 hover:border-purple-900 hover:text-purple-100 transition duration-300 ease-in-out border-2 border-white p-3 rounded-xl bg-purple-600 hover:bg-purple-900 btn_Shadow"
+               >
+                  <div set:html={CVSVG} />
+                  <p class="font-bold">Descarga Mi CV</p>
+               </a>
+
+               <div class="flex gap-4">
+                  <SocialBTN
+                     link="https://github.com/JoseRefugio2305"
+                     ariaLabel="GitHub"
+                     svg={GITHUBSVG}
+                  />
+                  <SocialBTN
+                     link="https://www.linkedin.com/in/jose-refugio/"
+                     ariaLabel="LinkedIn"
+                     svg={LINKEDINSVG}
+                  />
+                  <SocialBTN
+                     link="mailto:joserefugioriveramendoza@gmail.com"
+                     ariaLabel="GitHub"
+                     svg={MAILSVG}
+                  />
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

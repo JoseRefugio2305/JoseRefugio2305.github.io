@@ -1,0 +1,81 @@
+---
+import "../styles/global.css";
+
+interface Props {
+   title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="description" content="Desarrolador de Software" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
+      <title>{title}</title>
+   </head>
+   <body class="bg-white dark:bg-gray-800">
+      <slot />
+   </body>
+
+   <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"
+   ></script>
+   <script src="../utils/darkSwitch.ts"></script>
+   <script is:inline>
+      //Revisamos la configuracion del theme para cambiar el boton y el tema en la pagina
+      if (
+         localStorage.getItem("color-theme") === "dark" ||
+         (!("color-theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+         document.documentElement.classList.add("dark");
+      } else {
+         document.documentElement.classList.remove("dark");
+      }
+
+      // IDs de las secciones que quieres observar
+      const sectionIds = ["home", "about", "projects", "contact"];
+
+      // Selecciona los enlaces del navbar que tienen href="#id"
+      const navLinks = sectionIds.map((id) =>
+         document.querySelector(`a[href="#${id}"]`)
+      );
+
+      // Crea el observer
+      const observer = new IntersectionObserver(
+         (entries) => {
+            entries.forEach((entry) => {
+               const id = entry.target.id;
+               const link = document.querySelector(`a[href="#${id}"]`);
+               console.log(link.href);
+               if (entry.isIntersecting) {
+                  link?.classList.add("nav_LinkAct");
+                  // link?.classList.add("dark:text-purple-700");
+                  link?.classList.remove("dark:text-white");
+               } else {
+                  link?.classList.remove("nav_LinkAct");
+                  // link?.classList.remove("dark:text-purple-700");
+                  link?.classList.add("dark:text-white");
+               }
+            });
+         },
+         {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.2, // El callback se activa cuando al menos el 100% del elemento es visible.
+         }
+      );
+
+      // Observa cada sección
+      sectionIds.forEach((id) => {
+         const section = document.getElementById(id);
+
+         if (section) observer.observe(section);
+      });
+   </script>
+</html>
