@@ -15,7 +15,7 @@
 }
 
 .nav_LinkAct{
-   @apply text-purple-700 dark:text-purple-400 underline font-bold;
+   @apply text-purple-700 dark:text-purple-400 underline;
 }
 /* 
 .nav_LinkDeact{
